@@ -12,7 +12,7 @@ class Participante(models.Model):
     endereco = models.CharField(max_length=255)
     evangelico = models.BooleanField(default=False)
     igreja = models.CharField(max_length=255)
-    funcao = models.ForeignKey(Funcao, on_delete=models.DO_NOTHING, blank=True, null=True)
+    funcao = models.CharField(max_length=50)#ForeignKey(Funcao, on_delete=models.DO_NOTHING, blank=True, null=True)
     foto = models.ImageField(upload_to='Participantes', blank=True, null=True)
 
     def __str__(self):
