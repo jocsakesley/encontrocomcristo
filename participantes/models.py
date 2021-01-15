@@ -1,5 +1,5 @@
 from django.db import models
-
+from funcao.models import Funcao
 
 class Participante(models.Model):
     nome = models.CharField(max_length=50)
@@ -12,5 +12,8 @@ class Participante(models.Model):
     endereco = models.CharField(max_length=255)
     evangelico = models.BooleanField(default=False)
     igreja = models.CharField(max_length=255)
-    funcao = models.CharField(max_length=150)
+    funcao = models.ForeignKey(Funcao, on_delete=models.DO_NOTHING)
     foto = models.ImageField(upload_to='Participantes', blank=True, null=True)
+
+    def __str__(self):
+        return self.nome + ' ' + self.sobrenome

@@ -19,9 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
 from participantes.api.viewsets import ParticipantesModelViewSet
+from funcao.api.viewsets import FuncaoViewSet
 
 router = DefaultRouter()
 router.register('participantes', ParticipantesModelViewSet, basename='Participantes' )
+router.register('funcao', FuncaoViewSet, basename='Funcao' )
+
 
 urlpatterns = [
     path('', include(router.urls)),
